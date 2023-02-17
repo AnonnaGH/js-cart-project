@@ -20,6 +20,9 @@ const priceTotal = parseInt(productPrice) * parseInt(productQuantity);
 
 // show data
 displayData(productName,productPrice,productQuantity,priceTotal);
+
+disabledButton("first-card");
+
 }); 
 
 
@@ -41,6 +44,10 @@ document.getElementById("second-card").addEventListener("click",function(e){
     
 
     displayData(pName,pPrice,pQuantity,sumTotal);
+
+    disabledButton("second-card");
+
+    
 })
 
 
@@ -61,10 +68,19 @@ const priceTotal = parseInt(productPrice) - parseInt(productQuantity);
 
 // show data
 displayData(productName,productPrice,productQuantity,priceTotal);
+
+disabledButton("third-card");
 }); 
 
 
 
+// common funtion to display data
+
+// function getAllData(){
+    
+
+
+// }
 
 
 
@@ -76,6 +92,43 @@ displayData(productName,productPrice,productQuantity,priceTotal);
 
 
 
+//----------------5th card--------------------------------------------------
+
+document.getElementById("last-card").addEventListener("click",function(){
+    serial +=1;
+    const productName = document.getElementById("last-name").innerText;
+
+    const productPrice =  document.getElementById("first-input").value;
+    const productQuantity = document.getElementById("second-input").value;
+
+    if(productPrice == "" || productQuantity == "" || productPrice <= 0 || productQuantity <= 0 || typeof productPrice === "string" || productQuantity === "string") {
+        return alert("please enter any valid number");
+      }
+    
+    //   typeof value === "string"
+
+    const total = parseInt(productPrice)/parseInt(productQuantity);
+
+    displayData(productName,productPrice,productQuantity,total);
+
+    disabledButton("last-card");
+
+})
+
+
+
+
+
+
+
+
+
+
+
+///common function
+function disabledButton(id){
+    document.getElementById(id).setAttribute("disabled",true);
+}
 
 
 
